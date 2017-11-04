@@ -21,11 +21,12 @@ func main () {
 	f.Printf("%d + %d = %d\n", x, y, xPLUSy)
 	f.Printf("%d * %d = %d\n", x, y, xTIMESy)
 
-	//now 可変長引数
-	for _, n := range arg  {
-		f.Printf("And the number is: %d\n", n)
-	}
+	myfunc(1,1,1,1,1,1)
 
+	//defer
+	for i := 0; i < 5; i++ {
+		defer f.Printf("%d ", i)
+	}
 }
 
 //A+B と A*B を返します
@@ -33,4 +34,9 @@ func SumAndProduct(A, B int) (int, int) {
 	return A+B, A*B
 }
 
-func myfunc(arg ...int) {}
+//可変長引数
+func myfunc(arg ...int) {
+	for _, n := range arg  {
+		f.Printf("And the number is: %d\n", n)
+	}
+}
